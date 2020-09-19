@@ -1,0 +1,126 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Courier New', Courier, monospace;
+	overscroll-behavior-y: none;
+}
+
+.container {
+	width: 100%;
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: hidden;
+
+	.carousel {
+		width: 100%;
+		height: 100vh;
+		position: relative;
+
+		&-wrapper {
+			display: flex;
+
+			.carousel-item {
+				position: relative;
+				min-width: 100%;
+				width: 100vw;
+				height: 100vh;
+				overflow: hidden;
+				transition: 0.5s;
+				&__image {
+					width: 100%;
+					height: 100%;
+
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+				}
+
+				&__title {
+					position: absolute;
+					top: 50%;
+					left: 10%;
+					h1 {
+						color: white;
+						font-size: 10rem;
+					}
+				}
+			}
+		}
+
+		.carousel-controls {
+			position: absolute;
+			bottom: 2rem;
+			right: 2rem;
+			color: white;
+			display: flex;
+
+			.btn-control {
+				font-size: 5rem;
+				margin: 0 2rem;
+				cursor: pointer;
+				transition: transform 0.3s;
+				transform-origin: 0% 50%;
+				&:hover {
+					transform: scale(1.2);
+				}
+			}
+		}
+
+		.carousel-navigation {
+			position: absolute;
+			color: white;
+			bottom: 2rem;
+			left: 10%;
+
+			.carousel-navigation__dots {
+				display: flex;
+				.carousel-navigation__dot {
+					position: relative;
+					font-size: 2rem;
+					list-style-type: none;
+					width: 10px;
+					height: 10px;
+					background: white;
+					border-radius: 50%;
+					margin: 2rem 2rem 2rem 0;
+					cursor: pointer;
+
+					&.is-active {
+						background: rgb(255, 208, 0);
+						&:after {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+							content: '';
+							width: 25px;
+							height: 25px;
+							border: 2px solid rgb(255, 208, 0);
+							border-radius: 50%;
+							transform-origin: 0% 0%;
+							animation: pulse 2000ms infinite;
+							@keyframes pulse {
+								0% {
+									transform: scale(0) translate(-50%, -50%);
+								}
+
+								50% {
+									transform: scale(1) translate(-50%, -50%);
+								}
+								100% {
+									transform: scale(0) translate(-50%, -50%);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
