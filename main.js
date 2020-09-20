@@ -21,9 +21,7 @@ function nextSlide() {
 	console.log('next');
 	if (currentSlide < slides.length - 1) {
 		currentSlide++;
-		slides.forEach((slide) => {
-			slide.style.transform = `translateX(${-currentSlide * 100}%)`;
-		});
+		carousel.style.transform = `translateX(${-currentSlide * 100}%)`;
 		updateActiveClass();
 	}
 }
@@ -32,9 +30,7 @@ function prevSlide() {
 	console.log('prev');
 	if (currentSlide > 0) {
 		currentSlide--;
-		slides.forEach((slide) => {
-			slide.style.transform = `translateX(${-currentSlide * 100}%)`;
-		});
+		carousel.style.transform = `translateX(${-currentSlide * 100}%)`;
 		updateActiveClass();
 	}
 }
@@ -52,19 +48,10 @@ function updateActiveClass() {
 dots.forEach((dot, index) => {
 	dot.addEventListener('click', () => {
 		currentSlide = index;
-		slides.forEach((slide) => {
-			slide.style.transform = `translateX(${-currentSlide * 100}%)`;
-		});
+		carousel.style.transform = `translateX(${-currentSlide * 100}%)`;
 		updateActiveClass();
 	});
 });
-
-let last_known_scroll_position = 0;
-let ticking = false;
-
-function doSomething(scroll_pos) {
-	// Do something with the scroll position
-}
 
 function detectMouseWheelDirection(e) {
 	var delta = null,
