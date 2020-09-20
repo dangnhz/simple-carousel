@@ -1,4 +1,4 @@
-const carousel = document.querySelector('.carousel-wrapper');
+const carousel = document.querySelector('.carousel-items');
 const slides = document.querySelectorAll('.carousel-item');
 
 const btnNext = document.querySelector('.btn-next');
